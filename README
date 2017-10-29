@@ -13,4 +13,4 @@ $ subl csp-paper.tex
 	revise the template to your own proposal
 $ make
 $ xdg-open csp-paper.pdf
-	to see your proposal in pdf format
+	to review your proposal in pdf format
