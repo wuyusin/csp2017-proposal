@@ -1,4 +1,16 @@
+-------INSTALLATION-------
 Latex should be installed in the given img
 In case you want to install on other machines
 Install Latex
 $ sudo apt-get install texlive-full
+
+-------CREATE YOU OWN PROPOSAL-------
+$ git clone https://github.com/Duckietown-NCTU/Proposal.git
+$ cd ~/Proposal
+$ cp ieee-template [your_name]
+$ cd [your_name]
+$ subl csp-paper.tex
+	revise the template to your own proposal
+$ make
+$ xdg-open csp-paper.pdf
+	to see your proposal in pdf format
