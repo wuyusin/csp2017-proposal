@@ -7,7 +7,7 @@ $ sudo apt-get install texlive-full
 -------CREATE YOU OWN PROPOSAL-------
 $ git clone https://github.com/Duckietown-NCTU/Proposal.git
 $ cd ~/Proposal
-$ cp ieee-template [your_name]
+$ cp -r ieee-template/ [your_name]
 $ cd [your_name]
 $ subl csp-paper.tex
 	revise the template to your own proposal
