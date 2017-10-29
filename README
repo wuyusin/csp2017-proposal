@@ -5,7 +5,7 @@ Install Latex
 $ sudo apt-get install texlive-full
 
 -------CREATE YOU OWN PROPOSAL-------
-$ git clone https://github.com/Duckietown-NCTU/Proposal.git
+$ git clone https://github.com/Duckietown-NCTU/csp2017-proposal.git
 $ cd ~/Proposal
 $ cp -r ieee-template/ [your_name]
 $ cd [your_name]
