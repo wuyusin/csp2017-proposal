@@ -51,7 +51,7 @@ Duckiebot with Blind Navigation
 
 \section{INTRODUCTION \& MOTIVATION}
 
-Our goal is to apply duckiebot on blind navigation. The original duckiebot runs according to the yellow and white lines on the road. We are going to improve the oringinal duckiebot. The advanced duckiebot can find where the road is, and lead blind people safely. We hope that the blind people's action won't be limited anymore.
+Our goal is to apply duckiebot on blind navigation. The original duckiebot runs according to the yellow and white lines on the road and it can run well in the fixed map. Now we hope that our duckiebot can run on the real world, so that our duckiebot can lead blind people to the destination safely. In our duckiebot, we will equip it with a range sensor Asus Xtion, and replace the original line detector and lane filter with a depth line detector and corresponding lane filter to enable our duckiebot to find where the road is. We hope that the blind people's action won't be limited anymore.
 
 \section{SYSTEM ARCHITECTURE \& EQUIPMENTS}
 
@@ -64,11 +64,12 @@ Our goal is to apply duckiebot on blind navigation. The original duckiebot runs 
 \caption{system flowchart}
 \end{figure}
 
-Depth Line Detector will replace the original line detector and groud projection, the input of Depth Line Detector is pointcloud, the detector will detect two walls on both side of road, than transform walls into line segments which represent the derection of road, the output of Depth Line Detector is line segments.
+Generally, we hope we can keep the original architecture in duckietown lanefollowing. Different from the original version, our depth Line Detector will replace the original line detector and groud projection. The input of Depth Line Detector is pointcloud instead of rgb image. The new detector will detect two walls on both side of road, these two walls are trasformed into line segments which represent the derection of road and is very similar to the line segments in original lanefollowing. 
 
-Lane Filter...
+In original lane filter, the lane width is fixed. To apply depth line detector on the real world, we hope our car is able to run on the road of different width. To achieve this goal, we revise the lane filter to a dynamic-lane-width lane filter. Except the depth line detector and the dynamic-lane-width lane filter, our architecture is the same as the original duckietown.
 
-rqt\_graph~\cite{rqt-graph} 
+
+
 
 \subsection{EQUIPMENTS} 
 
