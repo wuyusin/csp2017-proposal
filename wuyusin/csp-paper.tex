@@ -87,9 +87,13 @@ You should list the hardware which is necessary in your project. Your project wi
 
 \section{SPECIFIC AIMS}
 
-Specific aims need to be concrete enough, so that it is clear what will be the expected outcomes of this work. You also need a reasonable scope that you could finish in this semester.
-
+\begin{figure}[h] % h means put this image here
+\includegraphics[width=0.8\columnwidth]{map.jpg}
+\centering
+\caption{map}
+\end{figure}
 \begin{itemize}
+The experiment environment is a map in shape of a lightning bolt, the duckiebot needs to turn left and right in order to get to the end. 
 \item Specific Aim 1.
 
 Dukiebot can go through a map which has fixed lane width.
@@ -106,34 +110,32 @@ Dukiebot can go through a map which has dynamic lane width.
 \centering
 \caption{approach flowchart}
 \end{figure}
-1.Wall filtering : Compute the normal of every point, keep points whose normal is horizontal(these points may be the wall part), filter out points whose normal is vertical(these points may be floor or something else).
+Wall filtering : Compute the normal of every point, keep points whose normal is horizontal(these points may be the wall part), filter out points whose normal is vertical(these points may be floor or something else).
 
-2.Project wall points : We now have 3D points of wall, but with these points, we can't determine which way to go. So we need to project the wall to x-y plane, then form 2D discrete points. these points imply the trend of wall.  
+Project wall points : We now have 3D points of wall, but with these points, we can't determine which way to go. So we need to project the wall to x-y plane, then form 2D discrete points. these points imply the trend of wall.  
 
-3.RANSAC line fitting : Model the 2D points into a best line.
+RANSAC line fitting : Model the 2D points into a best line.
 \begin{figure}[h] % h means put this image here
 \includegraphics[width=0.5\columnwidth]{RANSAC.png}
 \centering
 \caption{Fitted line with RANSAC; outliers have no influence on the result.}
 \end{figure}
 
-4. Split map : Because the road happens to be curved, we need to split the line, so we can get straight line segments.
+Split map : 
+Because the road happens to be curved, we need to split the line, so we can get straight line segments.
 
 
 \section{SCHEDULE AND TEAM COLLABORATION}
-
-(individual part)
 
 1. Wall filtering	    5days	11/03	11/09
 
 2. Project wall points	5days	11/10	11/16
 
-3. RANSAC line fitting	7days	11/17	11/27
+3. Split map	        7days	11/17	11/27
 
-4. Split map	        8days	11/28	12/07
+4. RANSAC line fitting	8days	11/28	12/07
 
-In this section you should write a estimated timeline of your project. This schedule will be very crucial to keep up progress for your project. If you are in a team, you're encouraged to add other team members' on the timeline. It will better show the coordination of your team.
-   
+5. dynamic-lane-width lane filter 12/08 12/15
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
