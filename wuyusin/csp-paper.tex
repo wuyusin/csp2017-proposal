@@ -72,12 +72,6 @@ In original lane filter, the lane width is fixed. To apply depth line detector o
 \subsection{EQUIPMENTS} 
 
 Our duckiebot is equipped with a range sensor Asus Xtion, whice can observe the environment ranging from 0.5 to 10 meters. Furthermore, A rod and a set of strong-torque motors are used to lead the visually impaired.
-\begin{figure}[h] % h means put this image here
-\includegraphics[width=0.8\columnwidth]{duckiebot_gripper}
-\centering
-\caption{Duckiebot with gripper}
- \label{figure:duckiebot_gripper}
-\end{figure}
 
 \begin{figure}[t] % t means put this image at the top 
 \includegraphics[width=0.8\columnwidth]{duck}
@@ -87,17 +81,16 @@ Our duckiebot is equipped with a range sensor Asus Xtion, whice can observe the 
 
 \section{SPECIFIC AIMS}
 
-<<<<<<< HEAD
-\begin{figure}[h] % h means put this image here
+
+\begin{figure}[h!] % h means put this image here
 \includegraphics[width=0.8\columnwidth]{map.jpg}
 \centering
-\caption{map}
+\caption{The experiment environment is a map in shape of a lightning bolt, the duckiebot needs to turn left and right in order to get to the end. 
+}
 \end{figure}
-=======
 
->>>>>>> fb99cd3fa63db4abcc6b0143ce89da2999fb0e4b
 \begin{itemize}
-The experiment environment is a map in shape of a lightning bolt, the duckiebot needs to turn left and right in order to get to the end. 
+
 \item Specific Aim 1.
 
 Dukiebot can go through a map which has fixed lane width.
@@ -109,51 +102,44 @@ Dukiebot can go through a map which has dynamic lane width.
 \section{APPROACH}
 
 
-\begin{figure}[h] % h means put this image here
+\begin{figure}[ht] % h means put this image here
 \includegraphics[width=1.0\columnwidth]{approach1.png}
 \centering
 \caption{approach flowchart}
 \end{figure}
-<<<<<<< HEAD
-Wall filtering : Compute the normal of every point, keep points whose normal is horizontal(these points may be the wall part), filter out points whose normal is vertical(these points may be floor or something else).
 
-Project wall points : We now have 3D points of wall, but with these points, we can't determine which way to go. So we need to project the wall to x-y plane, then form 2D discrete points. these points imply the trend of wall.  
+\begin{itemize}
 
-RANSAC line fitting : Model the 2D points into a best line.
-=======
-Wall filtering. Supposing that the sensor is horizontal to the ground, the normal of the wall is horizontal to the ground, and the normal of the road is vertical to the ground. Using this property, we can easily classify points as wall or ground.
+\item Wall filtering.\\ 
+Supposing that the sensor is horizontal to the ground, the normal of the wall is horizontal to the ground, and the normal of the road is vertical to the ground. Using this property, we can easily classify points as wall or ground.
 
-Project wall points. With these points of wall, we can't still determine which way to go, so we need to project the wall to x-y plane, then form 2D discrete points. These projected points seem like two lines and imply the trend of the road.  
+\item Project wall points.\\ 
+With these points of wall, we can't still determine which way to go, so we need to project the wall to x-y plane, then form 2D discrete points. These projected points seem like two lines and imply the trend of the road. 
 
-Split map. To describe the road, we split the map into lots of grids. There are many points in each grid, and they can be seen as a road segment.
+\item Split map.\\ 
+To describe the road, we split the map into lots of grids. There are many points in each grid, and they can be seen as a road segment.
 
-Random sample consensus (RANSAC) line fitting. RANSAC is an iterative method to estimate parameters of a mathematical model from a set of observed points. We will use RANSAC to fit these discrete points in every grid as a line segment and produce the line segment list.
->>>>>>> fb99cd3fa63db4abcc6b0143ce89da2999fb0e4b
-\begin{figure}[h] % h means put this image here
+\item Random sample consensus (RANSAC) line fitting.\\ 
+RANSAC is an iterative method to estimate parameters of a mathematical model from a set of observed points. We will use RANSAC to fit these discrete points in every grid as a line segment and produce the line segment list.
+
+\end{itemize}
+
+\begin{figure}[h!] % h means put this image here
 \includegraphics[width=0.5\columnwidth]{RANSAC.png}
 \centering
 \caption{Fitted line with RANSAC; outliers have no influence on the result.}
 \end{figure}
 
-<<<<<<< HEAD
-Split map : 
-Because the road happens to be curved, we need to split the line, so we can get straight line segments.
-=======
 
->>>>>>> fb99cd3fa63db4abcc6b0143ce89da2999fb0e4b
 
 
 \section{SCHEDULE AND TEAM COLLABORATION}
 
-1. Wall filtering	    5days	11/03	11/09
-
-2. Project wall points	5days	11/10	11/16
-
-3. Split map	        7days	11/17	11/27
-
-4. RANSAC line fitting	8days	11/28	12/07
-
-5. dynamic-lane-width lane filter 12/08 12/15
+Wall filtering	    5days	11/03	11/09\\
+Project wall points	5days	11/10	11/16\\
+Split map	        7days	11/17	11/27\\
+RANSAC line fitting	8days	11/28	12/07\\
+dynamic-lane-width lane filter 12/08 12/15\\
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
