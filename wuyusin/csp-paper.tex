@@ -27,15 +27,15 @@
 
 
 \title{\LARGE \bf
-Your Project Proposal Title
+Duckiebot with Blind Navigation
 }
 
 
-\author{Your Name$^{1}$ and Your Teammate's Name$^{2}$% <-this % stops a space
+\author{YuHsin Wu$^{1}$ and Michael Su$^{2}$% <-this % stops a space
 \thanks{*This work was supported by the Robotics Master Program in National Chiao Tung University, Taiwan}% <-this % stops a space
-\thanks{$^{1}$Your name is with National Chiao Tung University, Taiwan. You should put your name as first author
-        {\tt\small youremail@papercept.net}}%
-\thanks{$^{2}$You should add your teammates' names here,
+\thanks{$^{1}$YuHsin Wu is with National Chiao Tung University, Taiwan.
+        {\tt\small whish713.eed04@g2.nctu.edu.tw}}%
+\thanks{$^{2}$Michael Su,
         {\tt\small b.d.researcher@ieee.org}}%
 }
 
@@ -109,14 +109,14 @@ Specific aims need to be concrete enough, so that it is clear what will be the e
 
 2.Project wall points : We now have 3D points of wall, but with these points, we can't determine which way to go. So we need to project the wall to x-y plane, then form 2D discrete points. these points imply the trend of wall.  
 
-3.RANSAC line fitting : 
+3.RANSAC line fitting : Model the 2D points into a best line.
 \begin{figure}[h] % h means put this image here
 \includegraphics[width=0.5\columnwidth]{RANSAC.png}
 \centering
 \caption{Fitted line with RANSAC; outliers have no influence on the result.}
 \end{figure}
 
-4. Split map : 
+4. Split map : Because the road happens to be curved, we need to split the line, so we can get straight line segments.
 
 \item Approach of aim 2.
 
