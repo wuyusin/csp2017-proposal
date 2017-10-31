@@ -64,11 +64,9 @@ Our goal is to apply duckiebot on blind navigation. The original duckiebot runs 
 \caption{system flowchart}
 \end{figure}
 
-Generally, we hope we can keep the original architecture in duckietown lanefollowing. Different from the original version, our depth Line Detector will replace the original line detector and groud projection. The input of Depth Line Detector is pointcloud instead of rgb image. The new detector will detect two walls on both side of road, these two walls are trasformed into line segments which represent the derection of road and is very similar to the line segments in original lanefollowing. 
+Generally, we hope that we can keep the original architecture in duckietown lanefollowing. Different from the original version, our depth Line Detector will replace the original line detector and groud projection. The input of Depth Line Detector is pointcloud instead of rgb image. The new detector will detect two walls on both side of road, these two walls are trasformed into line segments which represent the derection of road and is very similar to the line segments in original lanefollowing. 
 
 In original lane filter, the lane width is fixed. To apply depth line detector on the real world, we hope our car is able to run on the road of different width. To achieve this goal, we revise the lane filter to a dynamic-lane-width lane filter. Except the depth line detector and the dynamic-lane-width lane filter, our architecture is the same as the original duckietown.
-
-
 
 
 \subsection{EQUIPMENTS} 
@@ -93,18 +91,20 @@ Specific aims need to be concrete enough, so that it is clear what will be the e
 
 \begin{itemize}
 \item Specific Aim 1.
+
+Dukiebot can go through a map which has fixed lane width.
 \item Specific Aim 2.
+
+Dukiebot can go through a map which has dynamic lane width.
 \end{itemize}
 
 \section{APPROACH}
-\begin{itemize}
 
-\item Approach of aim 1.
 
 \begin{figure}[h] % h means put this image here
 \includegraphics[width=1.0\columnwidth]{approach1.png}
 \centering
-\caption{approach1 flowchart}
+\caption{approach flowchart}
 \end{figure}
 1.Wall filtering : Compute the normal of every point, keep points whose normal is horizontal(these points may be the wall part), filter out points whose normal is vertical(these points may be floor or something else).
 
@@ -119,14 +119,18 @@ Specific aims need to be concrete enough, so that it is clear what will be the e
 
 4. Split map : Because the road happens to be curved, we need to split the line, so we can get straight line segments.
 
-\item Approach of aim 2.
-
-
-\end{itemize}
 
 \section{SCHEDULE AND TEAM COLLABORATION}
 
 (individual part)
+
+1. Wall filtering	    5days	11/03	11/09
+
+2. Project wall points	5days	11/10	11/16
+
+3. RANSAC line fitting	7days	11/17	11/27
+
+4. Split map	        8days	11/28	12/07
 
 In this section you should write a estimated timeline of your project. This schedule will be very crucial to keep up progress for your project. If you are in a team, you're encouraged to add other team members' on the timeline. It will better show the coordination of your team.
    
