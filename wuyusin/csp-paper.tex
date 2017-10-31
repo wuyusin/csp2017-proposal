@@ -64,14 +64,14 @@ Our goal is to apply duckiebot on blind navigation. The original duckiebot runs 
 \caption{system flowchart}
 \end{figure}
 
-Generally, we hope that we can keep the original architecture in duckietown lanefollowing. Different from the original version, our depth Line Detector will replace the original line detector and groud projection. The input of Depth Line Detector is pointcloud instead of rgb image. The new detector will detect two walls on both side of road, these two walls are trasformed into line segments which represent the derection of road and is very similar to the line segments in original lanefollowing. 
+Generally, the architecture is similar to the original duckietown lanefollowing. Different from the original version, our depth line detector will replace the original line detector and groud projection. The input of depthl 1ine detector is pointcloud instead of rgb image. The new detector will detect two walls on both sides of the road, and these two walls are trasformed into line segments which represent the direction of road. The output is the line segments of walls which are the same as original lanefollowing. 
 
-In original lane filter, the lane width is fixed. To apply depth line detector on the real world, we hope our car is able to run on the road of different width. To achieve this goal, we revise the lane filter to a dynamic-lane-width lane filter. Except the depth line detector and the dynamic-lane-width lane filter, our architecture is the same as the original duckietown.
+In original lane filter, the lane width is fixed. To apply depth line detector on the real world, we hope our car is able to run on the road of non-fixed width. To enable our duckiebot to go straight in the center of roads of different width, we revise the lane filter to a dynamic-lane-width lane filter. Except the depth line detector and the dynamic-lane-width lane filter, our architecture is the same as the original duckietown.
 
 
 \subsection{EQUIPMENTS} 
 
-You should list the hardware which is necessary in your project. Your project will only become For example, duckiebot with a gripper Fig.~\ref{figure:duckiebot_gripper}.
+Our duckiebot is equipped with a range sensor Asus Xtion, whice can observe the environment ranging from 0.5 to 10 meters. Furthermore, A rod and a set of strong-torque motors are used to lead the visually impaired.
 \begin{figure}[h] % h means put this image here
 \includegraphics[width=0.8\columnwidth]{duckiebot_gripper}
 \centering
@@ -87,11 +87,15 @@ You should list the hardware which is necessary in your project. Your project wi
 
 \section{SPECIFIC AIMS}
 
+<<<<<<< HEAD
 \begin{figure}[h] % h means put this image here
 \includegraphics[width=0.8\columnwidth]{map.jpg}
 \centering
 \caption{map}
 \end{figure}
+=======
+
+>>>>>>> fb99cd3fa63db4abcc6b0143ce89da2999fb0e4b
 \begin{itemize}
 The experiment environment is a map in shape of a lightning bolt, the duckiebot needs to turn left and right in order to get to the end. 
 \item Specific Aim 1.
@@ -110,19 +114,33 @@ Dukiebot can go through a map which has dynamic lane width.
 \centering
 \caption{approach flowchart}
 \end{figure}
+<<<<<<< HEAD
 Wall filtering : Compute the normal of every point, keep points whose normal is horizontal(these points may be the wall part), filter out points whose normal is vertical(these points may be floor or something else).
 
 Project wall points : We now have 3D points of wall, but with these points, we can't determine which way to go. So we need to project the wall to x-y plane, then form 2D discrete points. these points imply the trend of wall.  
 
 RANSAC line fitting : Model the 2D points into a best line.
+=======
+Wall filtering. Supposing that the sensor is horizontal to the ground, the normal of the wall is horizontal to the ground, and the normal of the road is vertical to the ground. Using this property, we can easily classify points as wall or ground.
+
+Project wall points. With these points of wall, we can't still determine which way to go, so we need to project the wall to x-y plane, then form 2D discrete points. These projected points seem like two lines and imply the trend of the road.  
+
+Split map. To describe the road, we split the map into lots of grids. There are many points in each grid, and they can be seen as a road segment.
+
+Random sample consensus (RANSAC) line fitting. RANSAC is an iterative method to estimate parameters of a mathematical model from a set of observed points. We will use RANSAC to fit these discrete points in every grid as a line segment and produce the line segment list.
+>>>>>>> fb99cd3fa63db4abcc6b0143ce89da2999fb0e4b
 \begin{figure}[h] % h means put this image here
 \includegraphics[width=0.5\columnwidth]{RANSAC.png}
 \centering
 \caption{Fitted line with RANSAC; outliers have no influence on the result.}
 \end{figure}
 
+<<<<<<< HEAD
 Split map : 
 Because the road happens to be curved, we need to split the line, so we can get straight line segments.
+=======
+
+>>>>>>> fb99cd3fa63db4abcc6b0143ce89da2999fb0e4b
 
 
 \section{SCHEDULE AND TEAM COLLABORATION}
