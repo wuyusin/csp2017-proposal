@@ -64,7 +64,9 @@ Our goal is to apply duckiebot on blind navigation. The original duckiebot runs 
 \caption{system flowchart}
 \end{figure}
 
-Depth Line Detector will replace the original line detector and groud projection, the input of Depth Line Detector is pointcloud, the output of Depth Line Detector is line segments.
+Depth Line Detector will replace the original line detector and groud projection, the input of Depth Line Detector is pointcloud, the detector will detect two walls on both side of road, than transform walls into line segments which represent the derection of road, the output of Depth Line Detector is line segments.
+
+Lane Filter...
 
 rqt\_graph~\cite{rqt-graph} 
 
@@ -86,8 +88,6 @@ You should list the hardware which is necessary in your project. Your project wi
 
 \section{SPECIFIC AIMS}
 
-(individual part)
-
 Specific aims need to be concrete enough, so that it is clear what will be the expected outcomes of this work. You also need a reasonable scope that you could finish in this semester.
 
 \begin{itemize}
@@ -96,12 +96,32 @@ Specific aims need to be concrete enough, so that it is clear what will be the e
 \end{itemize}
 
 \section{APPROACH}
+\begin{itemize}
 
-(individual part)
+\item Approach of aim 1.
 
-This section should include the methods that you will need in order to reach the specific aims. You could include how you will implement your software/hardware, the design of the algorithms. Some preliminary results will be helpful as well. 
+\begin{figure}[h] % h means put this image here
+\includegraphics[width=1.0\columnwidth]{approach1.png}
+\centering
+\caption{approach1 flowchart}
+\end{figure}
+1.Wall filtering : Compute the normal of every point, keep points whose normal is horizontal(these points may be the wall part), filter out points whose normal is vertical(these points may be floor or something else).
 
-You may also state what experiments you will carry out to convince the readers that you reach the specific aims.
+2.Project wall points : We now have 3D points of wall, but with these points, we can't determine which way to go. So we need to project the wall to x-y plane, then form 2D discrete points. these points imply the trend of wall.  
+
+3.RANSAC line fitting : 
+\begin{figure}[h] % h means put this image here
+\includegraphics[width=0.5\columnwidth]{RANSAC.png}
+\centering
+\caption{Fitted line with RANSAC; outliers have no influence on the result.}
+\end{figure}
+
+4. Split map : 
+
+\item Approach of aim 2.
+
+
+\end{itemize}
 
 \section{SCHEDULE AND TEAM COLLABORATION}
 
