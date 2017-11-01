@@ -51,7 +51,7 @@ Duckiebot with Blind Navigation
 
 \section{INTRODUCTION \& MOTIVATION}
 
-Our goal is to apply duckiebot on blind navigation. The original duckiebot runs according to the yellow and white lines on the road and it can run well in the fixed map. Now we hope that our duckiebot can run on the real world, so that our duckiebot can lead blind people to the destination safely. In our duckiebot, we will equip it with a range sensor Asus Xtion, and replace the original line detector and lane filter with a depth line detector and corresponding lane filter to enable our duckiebot to find where the road is. We hope that the blind people's action won't be limited anymore.
+Inspired by Wang~\cite{wang2017enabling}, we want to apply duckiebot on blind navigation. The original duckiebot~\cite{paull2017duckietown} runs according to the yellow and white lines on the road and it can run well in the fixed map. Now we hope that our duckiebot can run on the real world, so that our duckiebot can lead blind people to the destination safely. In our duckiebot, we will equip it with a range sensor Asus Xtion, and replace the original line detector and lane filter with a depth line detector and corresponding lane filter to enable our duckiebot to find where the road is. We hope that the blind people's action won't be limited anymore.
 
 \section{SYSTEM ARCHITECTURE \& EQUIPMENTS}
 
@@ -71,7 +71,7 @@ In original lane filter, the lane width is fixed. To apply depth line detector o
 
 \subsection{EQUIPMENTS} 
 
-Our duckiebot is equipped with a range sensor Asus Xtion, whice can observe the environment ranging from 0.5 to 10 meters. Furthermore, A rod and a set of strong-torque motors are used to lead the visually impaired.
+Our duckiebot is equipped with a range sensor Asus Xtion, whice can observe the environment ranging from 0.5 to 10 meters. Furthermore, A rod~\cite{wei2014guide} and a set of strong-torque motors are used to lead the visually impaired.
 
 \begin{figure}[t] % t means put this image at the top 
 \includegraphics[width=0.8\columnwidth]{duck}
@@ -120,7 +120,7 @@ With these points of wall, we can't still determine which way to go, so we need 
 To describe the road, we split the map into lots of grids. There are many points in each grid, and they can be seen as a road segment.
 
 \item Random sample consensus (RANSAC) line fitting.\\ 
-RANSAC is an iterative method to estimate parameters of a mathematical model from a set of observed points. We will use RANSAC to fit these discrete points in every grid as a line segment and produce the line segment list.
+RANSAC~\cite{fischler1981random, Rusu_ICRA2011_PCL} is an iterative method to estimate parameters of a mathematical model from a set of observed points. We will use RANSAC to fit these discrete points in every grid as a line segment and produce the line segment list.
 
 \end{itemize}
 
